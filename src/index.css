@@ -3,32 +3,65 @@
 @tailwind utilities;
 
 .fade-enter {
-    opacity: 0;
+  opacity: 0;
+  transform: scale(0.95);
+}
+.fade-enter-active {
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 300ms, transform 300ms;
+}
+.fade-exit {
+  opacity: 1;
+  transform: scale(1);
+}
+.fade-exit-active {
+  opacity: 0;
+  transform: scale(0.95);
+  transition: opacity 300ms, transform 300ms;
+}
 
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-  }
-  
-  .fade-enter-active {
-    opacity: 1;
-    transition: opacity 500ms ease-in-out;
-  }
-  
-  .fade-exit {
-    opacity: 1;
+.game-question-card-container {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: auto;
+  min-height: 400px;
+  overflow-y: auto;
+  transition: height 0.3s ease-in-out;
+}
 
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-  }
-  
-  .fade-exit-active {
-    opacity: 0;
-    transition: opacity 500ms ease-in-out;
-  }
+.transition-wrapper {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+
+/* Slide Left: Entering */
+.slide-left-enter {
+  transform: translateX(100%);
+  opacity: 0;
+}
+.slide-left-enter-active {
+  transform: translateX(0);
+  opacity: 1;
+  transition: transform 300ms ease-out, opacity 300ms ease-out;
+}
+
+/* Slide Left: Exiting */
+.slide-left-exit {
+  transform: translateX(0);
+  opacity: 1;
+}
+.slide-left-exit-active {
+  transform: translateX(-100%);
+  opacity: 0;
+  transition: transform 300ms ease-in, opacity 300ms ease-in;
+}
+
+
+
 
 @keyframes blink {
   0% { opacity: 1; }
@@ -54,3 +87,5 @@
 .incorrect {
   color: #ef4444;
 }
+
+

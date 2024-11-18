@@ -3,21 +3,48 @@ import { useEffect, useState } from 'react';
 interface TimerProps {
   duration: number;
   onTimeUp: () => void;
+  start: boolean;
 }
 
-export const Timer = ({ duration, onTimeUp }: TimerProps) => {
+export const Timer = ({ duration, onTimeUp, start }: TimerProps) => {
   const [timeLeft, setTimeLeft] = useState(duration);
 
   useEffect(() => {
-    if (timeLeft <= 0) {
-      onTimeUp();
-      return;
+    let timer: NodeJS.Timeout | null = null;
+
+    if (start) {
+      if (timeLeft === 0) {
+        setTimeLeft(duration);
+      }
+
+      timer = setInterval(() => {
+        setTimeLeft((prev) => {
+          if (prev > 0) {
+            return prev - 1;
+          } else {
+            clearInterval(timer!);
+            onTimeUp();
+            return 0;
+          }
+        });
+      }, 1000);
     }
-    const timer = setInterval(() => setTimeLeft((prev) => prev - 1), 1000);
-    return () => clearInterval(timer);
-  }, [timeLeft, onTimeUp]);
+
+    return () => {
+      if (timer) {
+        clearInterval(timer);
+      }
+    };
+  }, [start, duration, onTimeUp]);
+
+  const progressWidth = (timeLeft / duration) * 100;
 
   return (
-    <div style={{ width: `${(timeLeft / duration) * 100}%`, backgroundColor: 'blue', height: '10px' }} />
+    <div className="mb-3 w-full bg-gray-200 rounded-full overflow-hidden h-2">
+      <div
+        className="bg-red-500 h-full rounded-full"
+        style={{ width: `${progressWidth}%` }}
+      />
+    </div>
   );
 };
