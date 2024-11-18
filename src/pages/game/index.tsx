@@ -8,7 +8,7 @@ import { GameQuestionCard } from "./components/GameQuestionCard";
 import { GameTimer } from "./components/GameTimer";
 
 export const Game = () => {
-  const {currentQuestionIndex} = useGameContext();
+  const {currentQuestionIndex, score} = useGameContext();
 
   const {
     currentQuestion,
@@ -28,7 +28,11 @@ export const Game = () => {
       <header className="bg-white shadow">
         <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
           <div className="flex justify-between items-stretch">
-            <h1 className="text-3xl font-bold tracking-tight text-gray-900">Question {currentQuestionIndex}</h1>
+            <div>
+              <h1 className="text-3xl font-bold tracking-tight text-gray-900">Question {currentQuestionIndex}</h1>
+              <small>Score: {score}</small>
+            </div>
+            
             <ConfirmButton onClick={handleAnswer} disabled={answer === null} />
           </div>
           <ProgressBar />

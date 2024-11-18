@@ -76,7 +76,6 @@ const Register = () => {
               ) : (
                 "Submit"
               )}
-              {loading && <span>Loading...</span>}
             </button>
             </div>
           </div>
