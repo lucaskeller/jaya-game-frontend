@@ -9,9 +9,16 @@ import Register from './pages/register'
 import Results from './pages/results'
 import { Game } from './pages/game'
 import { GameProvider } from './context/GameContext'
+import { ReactTagManager } from 'react-gtm-ts'
 
 function App() {
   const location = useLocation();
+
+  ReactTagManager.init({
+    code: 'GTM-K2SLFQZ6', // GTM Code
+    debug: false, // debug mode (default false)
+    performance: false, // starts GTM only after user interaction (improve initial page load)
+  });
 
   let navigation = [
     { name: 'Register', href: '/', current: true },
