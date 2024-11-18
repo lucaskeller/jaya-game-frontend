@@ -1,7 +1,7 @@
 import { FeedbackMessage } from "../../components/FeedbackMessages";
 import ProgressBar from "../../components/ProgressBar";
 import { useGameContext } from "../../context/GameContext";
-import { useGameLogic } from "../../hooks/useGameLogix";
+import { useGameLogic } from "../../hooks/useGameLogic";
 import { ConfirmButton } from "./components/ConfirmButton";
 // import { FinishButton } from "./components/FinishButton";
 import { GameQuestionCard } from "./components/GameQuestionCard";

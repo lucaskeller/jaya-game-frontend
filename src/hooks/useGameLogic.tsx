@@ -42,11 +42,19 @@ export const useGameLogic = () => {
   };
 
   // function called on time up
+  //
+  // fix: Cannot update a component while rendering a different component
+  // when we wrap the state update inside setTimeout, it schedules the update 
+  // to run after the current render is finished, making it asynchronous relative 
+  // to the current rendering process. This ensures React’s rendering flow is 
+  // not disrupted
   const handleTimeUp = () => {
-    setTimerStarted(false);
-    setIsAnswerRevealed(true);
-    handleAnswer();
-    setTimeup(true);
+    setTimeout(() => {
+      setTimerStarted(false);
+      setIsAnswerRevealed(true);
+      handleAnswer();
+      setTimeup(true);
+    }, 0);
   };
 
   // function to handle opaenai answer
