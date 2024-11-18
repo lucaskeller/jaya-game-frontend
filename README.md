@@ -1,50 +1,59 @@
-# React + TypeScript + Vite
+# Jaya Game Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This repository contains the frontend for the Jaya Game system. It is built using Vite and uses Vitest for testing. Below you'll find the instructions to run the project locally and access the production environments.
 
-Currently, two official plugins are available:
+## Requirements
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Before running the project locally, ensure you have the following installed:
 
-## Expanding the ESLint configuration
+- [Node.js](https://nodejs.org) (version 18.x or higher)
+- [npm](https://www.npmjs.com/)
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Running Locally
 
-- Configure the top-level `parserOptions` property like this:
+### 1. Clone the repository
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+Clone the repository to your local machine:
+
+```bash
+git clone https://github.com/lucaskeller/jaya-game-frontend
+cd jaya-game
+````
+
+### 2. Install dependencies
+
+Install the project dependencies using Yarn or npm:
+
+```bash
+npm install
+````
+
+### 3. Run the local server
+
+To run the frontend locally, use the following command:
+
+```bash
+npm run dev
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+The development server will be available at http://localhost:3000.
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+### 4. Run tests
+To run tests using Vitest, execute the following command:
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+```bash
+npx vitest
 ```
+
+### 5. Production URLs
+- Frontend: https://jaya-game.lucaskeller.dev
+- CMS (Admin): https://appetizing-bloom-421039085a.strapiapp.com/admin
+- CMS Access
+  - Username: jaya@jaya.com
+  - Password: jaya@2024
+
+### 6. Contributing
+- Fork this repository.
+- Create a branch for your feature: git checkout -b my-feature.
+- Make changes and push to your fork: git push origin my-feature.
+- Open a Pull Request to `main`branch for review.
