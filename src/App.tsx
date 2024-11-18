@@ -15,7 +15,7 @@ function App() {
   const location = useLocation();
 
   ReactTagManager.init({
-    code: 'GTM-K2SLFQZ6', // GTM Code
+    code: 'G-TFCBM5XNH8', // GTM Code
     debug: false, // debug mode (default false)
     performance: false, // starts GTM only after user interaction (improve initial page load)
   });
