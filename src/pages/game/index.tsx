@@ -3,7 +3,7 @@ import ProgressBar from "../../components/ProgressBar";
 import { useGameContext } from "../../context/GameContext";
 import { useGameLogic } from "../../hooks/useGameLogix";
 import { ConfirmButton } from "./components/ConfirmButton";
-import { FinishButton } from "./components/FinishButton";
+// import { FinishButton } from "./components/FinishButton";
 import { GameQuestionCard } from "./components/GameQuestionCard";
 import { GameTimer } from "./components/GameTimer";
 
@@ -20,7 +20,7 @@ export const Game = () => {
     onAnswer,
     handleTimeUp,
     handleAnswer,
-    handleFinishGame,
+    // handleFinishGame,
   } = useGameLogic();
 
   return (

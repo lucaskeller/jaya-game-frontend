@@ -1,4 +1,4 @@
-import { Routes, Route, Link, useLocation } from 'react-router-dom'
+import { Routes, Route, Link } from 'react-router-dom'
 import './App.css'
 
 import Logo from './assets/favicon.ico'
@@ -11,12 +11,12 @@ import Results from './pages/results'
 import { Game } from './pages/game'
 import { GameProvider } from './context/GameContext'
 
-const user = {
-  name: 'Tom Cook',
-  email: 'tom@example.com',
-  imageUrl:
-    'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-}
+// const user = {
+//   name: 'Tom Cook',
+//   email: 'tom@example.com',
+//   imageUrl:
+//     'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+// }
 const navigation = [
   { name: 'Register', href: '/', current: true },
   { name: 'Game', href: '/game', current: true },
@@ -28,8 +28,6 @@ function classNames(...classes) {
 }
 
 function App() {
-  // const location = useLocation();
-
   return (
     <div className="min-h-full">
         <Disclosure as="nav" className="bg-gray-800">
@@ -95,7 +93,7 @@ function App() {
                 </DisclosureButton>
               ))}
             </div>
-            <div className="border-t border-gray-700 pb-3 pt-4">
+            {/* <div className="border-t border-gray-700 pb-3 pt-4">
               <div className="flex items-center px-5">
                 <div className="shrink-0">
                   <img alt="" src={user.imageUrl} className="size-10 rounded-full" />
@@ -111,20 +109,16 @@ function App() {
                   <span className="absolute -inset-1.5" />
                 </button>
               </div>
-            </div>
+            </div> */}
           </DisclosurePanel>
         </Disclosure>
-        {/* <TransitionGroup>
-          <CSSTransition key={location.key} timeout={300} classNames="fade" unmountOnExit> */}
-          <GameProvider>
-            <Routes>
-              <Route path="/" element={<Register />} />
-              <Route path="/game" element={<Game />} />
-              <Route path="/results" element={<Results />} />
-            </Routes>
-          </GameProvider>
-            {/* </CSSTransition>
-        </TransitionGroup> */}
+        <GameProvider>
+          <Routes>
+            <Route path="/" element={<Register />} />
+            <Route path="/game" element={<Game />} />
+            <Route path="/results" element={<Results />} />
+          </Routes>
+        </GameProvider>
     </div>
   )
 }
