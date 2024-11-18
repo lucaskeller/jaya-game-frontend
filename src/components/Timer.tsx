@@ -42,6 +42,7 @@ export const Timer = ({ duration, onTimeUp, start }: TimerProps) => {
   return (
     <div className="mb-3 w-full bg-gray-200 rounded-full overflow-hidden h-2">
       <div
+        data-testid="progresbar"
         className="bg-red-500 h-full rounded-full"
         style={{ width: `${progressWidth}%` }}
       />

@@ -24,7 +24,7 @@ export const GameQuestionCard = ({
       <TransitionGroup>
         {loading ? (
           <CSSTransition key="loading" timeout={300} classNames="slide-left">
-            <div className="transition-wrapper">
+            <div className="transition-wrapper" data-testid="skeleton">
               <Skeleton height={64} count={1} />
               <Skeleton height={40} count={4} />
             </div>

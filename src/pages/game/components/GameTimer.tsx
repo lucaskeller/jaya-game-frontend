@@ -14,7 +14,7 @@ export const GameTimer = ({ currentQuestion, loading, answer, handleTimeUp, time
     return <Timer duration={5} onTimeUp={handleTimeUp} start={timerStarted} />;
   } else {
     return (
-      <div className="mb-3 w-full bg-gray-200 rounded-full overflow-hidden h-2"></div>
+      <div className="mb-3 w-full bg-gray-200 rounded-full overflow-hidden h-2" data-testid="empty-progresbar"></div>
     );
   }
 };
