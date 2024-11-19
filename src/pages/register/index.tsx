@@ -23,11 +23,17 @@ const Register = () => {
     setLoading(true);
     try {
       mixpanel.track('User logged in');
-      mixpanel.identify(data.email)
 
       const response = await axiosInstance.post('/game-users', {
         email: data.email,
       });
+
+
+
+      mixpanel.identify(response.data.data.id)
+      mixpanel.people.set({
+        '$email': data.email,
+      })
 
       setCurrentUser(response.data.data);
 
