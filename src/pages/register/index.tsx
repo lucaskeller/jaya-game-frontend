@@ -4,6 +4,7 @@ import { useState } from 'react';
 import axiosInstance from '../../utils/axiosInstance';
 import { useNavigate } from 'react-router-dom';
 import { useGameContext } from '../../context/GameContext';
+import mixpanel from 'mixpanel-browser';
 
 const Register = () => {
   const [loading, setLoading] = useState(false);
@@ -21,6 +22,9 @@ const Register = () => {
   const onSubmit = async (data: FormData) => {
     setLoading(true);
     try {
+      mixpanel.track('User logged in');
+      mixpanel.identify(data.email)
+
       const response = await axiosInstance.post('/game-users', {
         email: data.email,
       });

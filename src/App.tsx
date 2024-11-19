@@ -11,8 +11,13 @@ import { Game } from './pages/game'
 import { GameProvider } from './context/GameContext'
 import { ReactTagManager } from 'react-gtm-ts'
 
+const mixpanelToken = import.meta.env.VITE_MIXPANEL_TOKEN;
+import mixpanel from 'mixpanel-browser';
+
 function App() {
   const location = useLocation();
+
+  mixpanel.init(mixpanelToken);
 
   ReactTagManager.init({
     code: 'GTM-K2SLFQZ6', // GTM Code

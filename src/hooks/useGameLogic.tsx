@@ -4,6 +4,7 @@ import { useGameContext } from '../context/GameContext';
 import { Question } from '../types';
 import { fetchQuestion } from '../utils/openai';
 import axiosInstance from '../utils/axiosInstance';
+import mixpanel from 'mixpanel-browser';
 
 export const useGameLogic = () => {
   const { 
@@ -50,6 +51,7 @@ export const useGameLogic = () => {
   // not disrupted
   const handleTimeUp = () => {
     setTimeout(() => {
+      mixpanel.track('Question time up');
       setTimerStarted(false);
       setIsAnswerRevealed(true);
       handleAnswer();
@@ -91,6 +93,7 @@ export const useGameLogic = () => {
         score: score,
       },
     });
+    mixpanel.track('Game finished', { score });
     navigate('/results');
   };
 
