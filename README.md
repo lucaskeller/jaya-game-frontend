@@ -47,10 +47,10 @@ npx vitest
 
 ### 5. Production URLs
 - Frontend: https://jaya-game.lucaskeller.dev
-- CMS (Admin): https://appetizing-bloom-421039085a.strapiapp.com/admin
+- CMS (Admin): https://brilliant-frog-212aacd29a.strapiapp.com//admin
 - CMS Access
   - Username: jaya@jaya.com
-  - Password: jaya@2024
+  - Password: Jaya@2024
 
 ### 6. Contributing
 - Fork this repository.
