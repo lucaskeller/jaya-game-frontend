@@ -28,8 +28,6 @@ const Register = () => {
         email: data.email,
       });
 
-
-
       mixpanel.identify(response.data.data.id)
       mixpanel.people.set({
         '$email': data.email,

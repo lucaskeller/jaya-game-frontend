@@ -51,7 +51,7 @@ export const useGameLogic = () => {
   // not disrupted
   const handleTimeUp = () => {
     setTimeout(() => {
-      mixpanel.track('Question time up');
+      mixpanel.track(`Question ${currentQuestionIndex} time up`);
       setTimerStarted(false);
       setIsAnswerRevealed(true);
       handleAnswer();
@@ -62,7 +62,10 @@ export const useGameLogic = () => {
   // function to handle opaenai answer
   const handleAnswer = () => {
     if (answer === currentQuestion?.correctAnswer) {
+      mixpanel.track(`Question ${currentQuestionIndex} correct answer`);
       setScore(score + 1);
+    } else {
+      mixpanel.track(`Question ${currentQuestionIndex} incorrect answer`);
     }
     setIsAnswerRevealed(true);
     handleNextQuestion();
