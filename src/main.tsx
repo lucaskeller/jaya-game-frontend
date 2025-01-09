@@ -7,7 +7,7 @@ const mixpanelToken = import.meta.env.VITE_MiXPANEL_TOKEN;
 import mixpanel from 'mixpanel-browser';
 
 mixpanel.init(mixpanelToken, {
-  api_host: "https://wk-mixpanel-proxy.kellerti.workers.dev",
+  // api_host: "https://wk-mixpanel-proxy.kellerti.workers.dev",
 });
 
 createRoot(document.getElementById('root')!).render(
